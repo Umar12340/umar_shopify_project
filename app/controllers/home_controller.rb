@@ -17,6 +17,6 @@ class HomeController < ApplicationController
   end
 
   def transfer_products
-    
+    ProductsTransferWorker.perform_async(params[:product_ids], params[:shop])
   end
 end
